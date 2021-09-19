@@ -11,13 +11,14 @@ LinkedList	*createLinkedList(void)
 	return (lst);
 }
 
-ListNode	*createListNode(int data)
+ListNode	*createListNode(int data, t_data weight)
 {
 	ListNode	*node;
 	node = (ListNode *)malloc(sizeof(ListNode));
 	if (!node)
 		return (0);
 	bzero(node, sizeof(ListNode));
+	node->weight = weight;
 	node->data = data;
 	return (node);
 }
@@ -44,6 +45,28 @@ t_bool	addLLElement(LinkedList *pList, int position, ListNode *element)
 	element->pLink = cur->pLink;
 	cur->pLink = element;
 	pList->currentElementCount++;
+	return (T_TRUE);
+}
+
+t_bool		addLLElementLast(LinkedList *pList, ListNode *element)
+{
+	ListNode *cur;
+
+	if (!pList || !element)
+	{
+		printf("invalid input");
+		return (T_FALSE);
+	}
+	cur = pList->headerNode;
+	pList->currentElementCount++;
+	if (cur == NULL)
+	{
+		pList->headerNode = element;
+		return T_TRUE;
+	}
+	while (cur->pLink)
+		cur = cur->pLink;
+	cur->pLink = element;
 	return (T_TRUE);
 }
 
