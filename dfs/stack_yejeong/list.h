@@ -1,26 +1,28 @@
-#ifndef LIST_H
-# define LIST_H
+#ifndef _LIST_H
+# define _LIST_H
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <strings.h>
 
-#ifndef _COMMON_GRAPH_DEF_
-#define _COMMON_GRAPH_DEF_
+//#ifdef _COMMON_GRAPH_DEF_
+//#define _COMMON_GRAPH_DEF_
 
 #define TRUE				1
 #define FALSE				0
 
-#define USED				1
 #define NOT_USED			0
+#define USED				1
+#define VISITED				2
+
 
 #define SUCCESS				1
 #define FAIL				0
 
 #define GRAPH_UNDIRECTED	1
 #define GRAPH_DIRECTED		2
-
-#endif
+#define MAX 8
+//#endif
 
 typedef enum  s_bool
 {
@@ -32,7 +34,7 @@ typedef int	t_data;
 
 typedef struct	ListNodeType
 {
-	t_data				data; //int -> t_data
+	t_data				data; //vertexID
 	//struct ListNodeType *Vertex;
 	t_data				weight;
 	int					visited;
@@ -48,6 +50,7 @@ typedef struct	LinkedListType
 LinkedList	*createLinkedList(void);
 ListNode	*createListNode(t_data data, t_data weight);
 t_bool		addLLElement(LinkedList *pList, int position, ListNode *element);
+t_bool		addLLElementFirst(LinkedList *pList, ListNode *element);
 t_bool		addLLElementLast(LinkedList *pList, ListNode *element);
 t_bool		removeLLElement(LinkedList *pList, int position);
 t_data		getLLElement(LinkedList *pList, int position);

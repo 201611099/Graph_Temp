@@ -274,10 +274,8 @@ void displayLinkedGraph(LinkedGraph* pGraph)
 	for(int i=0; i<pGraph->maxVertexCount; i++){
 		if (pGraph->pVertex[i] == USED)
 			printf("\x1b[32m%-3d \x1b[0m", i); //vertex
-		else if (pGraph->pVertex[i] == NOT_USED)
-			printf("\x1b[31m%-3d \x1b[0m", i); //vertex
 		else
-			printf("\x1b[33m%-3d \x1b[0m", i); //vertex
+			printf("\x1b[31m%-3d \x1b[0m", i); //vertex
 		ListNode *tmp = pGraph->ppAdjEdge[i]->headerNode;
 		while (tmp)
 		{

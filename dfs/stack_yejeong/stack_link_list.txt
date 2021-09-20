@@ -1,0 +1,90 @@
+#include "./stack_link_list.h"
+
+Stack *init(void)
+{
+	Stack *a;
+
+	a = (Stack *)malloc(sizeof(Stack));
+    a->headerNode = NULL;
+	a->currentElementCount = 0;
+	return a;
+}
+
+int size(Stack a)
+{
+    return a.currentElementCount;
+}
+
+int IsEmpty(Stack a)
+{
+	return a.currentElementCount == 0;
+}
+
+int IsFull(Stack a)
+{
+    if (a.currentElementCount >= MAX)
+        return 1;
+    return 0;
+}
+
+void push(Stack *a, ListNode *new)
+{
+	if (IsFull(*a))
+	{
+		printf("is Full");
+		return;
+	}
+    //lstadd_front(&(a->top), new);
+	addLLElementFirst(a, new);
+    a->currentElementCount++;
+}
+
+ListNode *pop(Stack *a)
+{
+    ListNode *ret;
+
+    if (IsEmpty(*a))
+	{
+        printf("It is empty");
+		return NULL;
+	}
+    ret = a->headerNode;
+    //a->headerNode = delete_first(a->headerNode);
+	removeLLElement(a, 0);
+    //addLLElementFirst(a);
+    a->currentElementCount--;
+    return ret;
+}
+
+ListNode	*peek(Stack *a)
+{
+    ListNode *ret;
+
+    if (IsEmpty(*a))
+        return 0;
+    ret = a->headerNode;
+
+    return ret;
+}
+
+//int main(void)
+//{
+//	Stack *a = createLinkedList();
+//	ListNode *x = createListNode(0, 3);
+	
+//	push(a, x);
+//	x = createListNode(1, 2);
+//	push(a, x);
+//	x = createListNode(2, 2);
+//	push(a, x);
+//	x = createListNode(3, 3);
+//	push(a, x);
+//	x = createListNode(4, 4);
+//	push(a, x);
+
+//	while (a->currentElementCount)
+//	{
+//        ListNode *tmp = pop(a);
+//		printf("data %d data2 %d\n", tmp->data, tmp->weight);
+//	}
+//}

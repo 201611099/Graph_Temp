@@ -1,7 +1,7 @@
 #ifndef _GRAPH_ADJLIST_
 #define _GRAPH_ADJLIST_
 
-# include "./linked_list/list.h"
+# include "./stack_yejeong/list.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <strings.h>
