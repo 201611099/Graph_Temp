@@ -74,7 +74,7 @@ int main(void){
 	addEdgeLG(lg, 3, 7);
 
 	displayLinkedGraph(lg);
-	//traversal_DFS(lg);
-	traversal_recursive_DFS(lg);
+	traversal_DFS(lg);
+	//traversal_recursive_DFS(lg);
 	//displayLinkedGraph(lg);
 }
