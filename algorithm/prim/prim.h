@@ -3,7 +3,7 @@
 
 # define LG_MAX 6
 # define VISITIED 1
-# define NOT_VISITIED 1
+# define NOT_VISITIED 0
 
 #include "./linkedGraph/linkedgraph.h"
 
