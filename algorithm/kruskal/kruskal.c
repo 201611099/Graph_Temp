@@ -12,26 +12,17 @@ static void	printHeap(Heap *heap)
 {
 	for (int i = 1; i <= heap->currentElementCount; i++){
 		printf("%d ", heap->pElement[i].weight);
-	 // printf("tt : %d\n", is_power_of_two(i + 1));
 	if (is_power_of_two(i + 1))
 		printf("\n");
-		//printf("a : %d\n", i);
 	}
 	printf("\n");
 }
-
-//int isCycle(LinkedGraph *mst)
-//{
-	
-//}
 
 void kruskal(LinkedGraph *mst, Heap *heap)
 {
 	int vertex[LG_MAX] = {0, };
 	element	edge;
-	//int i = 0;
 
-	//while (heap->currentElementCount && i != LG_MAX - 1)
 	while (heap->currentElementCount)
 	{
 		edge = heap->pElement[1];
@@ -41,12 +32,8 @@ void kruskal(LinkedGraph *mst, Heap *heap)
 			addEdgewithWeightLG(mst, edge.fromVertex, edge.toVertex, edge.weight);
 			vertex[edge.fromVertex] = 1;
 			vertex[edge.toVertex] = 1;
-			//i++;
 		}
 	}
-	//if(isCycle(mst))
-	//removeEdgeLG(mst, edge.fromVertex, edge.toVertex);
-	//return (TRUE);
 }
 
 int main (void)
